@@ -37,7 +37,7 @@ set(config_module_list
 	drivers/imu/l3gd20
 	drivers/imu/lsm303d
 	drivers/imu/mpu6000
-	drivers/imu/mpu9250
+	#drivers/imu/mpu9250
 	#drivers/iridiumsbd
 	#drivers/irlock
 	drivers/magnetometer/hmc5883
@@ -56,7 +56,7 @@ set(config_module_list
 	drivers/stm32/adc
 	drivers/stm32/tone_alarm
 	#drivers/tap_esc
-	drivers/vmount
+	#drivers/vmount
 	modules/sensors
 
 	#
@@ -175,3 +175,5 @@ set(config_module_list
 )
 
 set(flight_tasks_to_remove Orbit)
+set(flight_tasks_to_remove Sport)
+
