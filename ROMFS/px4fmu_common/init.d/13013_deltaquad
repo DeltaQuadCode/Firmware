@@ -21,11 +21,17 @@ sh /etc/init.d/rc.vtol_defaults
 
 if [ $AUTOCNF == yes ]
 then
+	param set SYS_FMU_TASK 0
 	param set BAT_CAPACITY 23000
 	param set BAT_N_CELLS 4
 	param set BAT_R_INTERNAL 0.0025
 
-	param set COM_DISARM_LAND 5
+	param set COM_DISARM_LAND 2
+	param set COM_POS_FS_DELAY 30
+	param set COM_POS_FS_EPH 20
+	param set COM_POS_FS_EPV 30
+	param set COM_POS_FS_GAIN 0
+
 
 	param set VT_TYPE 2
 	param set VT_MOT_COUNT 4
@@ -52,7 +58,7 @@ then
 	param set FW_PR_I 0.18
 	param set FW_PR_P 0.15
 	param set FW_P_TC 0.5
-	param set FW_PSP_OFF 5
+	param set FW_PSP_OFF 2
 	param set FW_R_LIM 35
 	param set FW_RR_FF 0.9
 	param set FW_RR_I 0.08
@@ -63,7 +69,7 @@ then
 	param set FW_T_SINK_MIN 1
 	param set FW_T_VERT_ACC 6
 	param set FW_T_HRATE_P 0.1
-	param set FW_THR_CRUISE 0.70
+	param set FW_THR_CRUISE 0.59
 	param set FW_THR_SLEW_MAX 1
 	param set FW_MAN_P_MAX 30
 	param set FW_P_LIM_MAX 15
@@ -73,7 +79,7 @@ then
 	param set FW_R_RMAX 50
 	param set FW_THR_MIN 0.55
 	param set FW_BAT_SCALE_EN 1
-	param set FW_THR_ALT_SCL 2.7
+	param set FW_THR_ALT_SCL 1.15
 	param set FW_T_RLL2THR 20
 
 	param set LNDMC_ALT_MAX 9999
@@ -218,7 +224,7 @@ then
 	param set CBRK_VELPOSERR 201607
 	param set MAV_PROTO_VER 1
 	param set FW_BAT_SCALE_EN 1
-	param set FW_THR_ALT_SCL 2.3
+	param set FW_THR_ALT_SCL 1.15
 	param set FW_THR_SLEW_MAX 2
 	param set MIS_DIST_1WP 1000
 	param set MIS_DIST_WPS 100000
