@@ -860,7 +860,13 @@ Navigator::get_default_altitude_acceptance_radius()
 		return _param_fw_alt_acceptance_radius.get();
 
 	} else {
-		return _param_mc_alt_acceptance_radius.get();
+                const position_setpoint_s &next_sp = get_position_setpoint_triplet()->next;
+                // Ignore altitude when landing is next
+                if (next_sp.type == position_setpoint_s::SETPOINT_TYPE_LAND && next_sp.valid) {
+                    return 999.0f;
+                } else {
+                    return _param_mc_alt_acceptance_radius.get();
+                }
 	}
 }
 
