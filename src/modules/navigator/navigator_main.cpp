@@ -873,17 +873,22 @@ Navigator::get_default_altitude_acceptance_radius()
 float
 Navigator::get_altitude_acceptance_radius()
 {
-	if (!get_vstatus()->is_rotary_wing) {
-		const position_setpoint_s &next_sp = get_position_setpoint_triplet()->next;
+    const position_setpoint_s &next_sp = get_position_setpoint_triplet()->next;
 
-		if (next_sp.type == position_setpoint_s::SETPOINT_TYPE_LAND && next_sp.valid) {
-			// Use separate (tighter) altitude acceptance for clean altitude starting point before landing
-			return _param_fw_alt_lnd_acceptance_radius.get();
-		}
-	}
+    if (!get_vstatus()->is_rotary_wing && next_sp.type == position_setpoint_s::SETPOINT_TYPE_LAND && next_sp.valid) {
+        // Use separate (tighter) altitude acceptance for clean altitude starting point before landing
+        return _param_fw_alt_lnd_acceptance_radius.get();
+    } else {
+        // ignore altitude before landing
+        if(next_sp.type == position_setpoint_s::SETPOINT_TYPE_LAND && next_sp.valid) {
+            PX4_INFO("Altitude radius before landing: 100.0f");
+            return 100.0f;
+        }
+    }
 
-	return get_default_altitude_acceptance_radius();
+    return get_default_altitude_acceptance_radius();
 }
+
 
 float
 Navigator::get_cruising_speed()
