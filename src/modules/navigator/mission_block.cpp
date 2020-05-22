@@ -280,6 +280,7 @@ MissionBlock::is_mission_item_reached()
 			_time_wp_reached = now;
 
 		} else {
+
 			/* for normal mission items used their acceptance radius */
 			float mission_acceptance_radius = _navigator->get_acceptance_radius(_mission_item.acceptance_radius);
 
@@ -304,10 +305,12 @@ MissionBlock::is_mission_item_reached()
 
 			}
 
-			if (dist >= 0.0f && dist <= mission_acceptance_radius
+
+            if (dist_xy >= 0.0f && dist_xy <= mission_acceptance_radius
 			    && dist_z <= _navigator->get_altitude_acceptance_radius()) {
 				_waypoint_position_reached = true;
 			}
+
 		}
 
 		if (_waypoint_position_reached) {
