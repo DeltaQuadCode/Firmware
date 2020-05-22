@@ -173,6 +173,7 @@ void Standard::update_vtol_state()
 			 * unsafe flying state. */
 			_vtol_schedule.flight_mode = TRANSITION_TO_FW;
 			_vtol_schedule.transition_start = hrt_absolute_time();
+            _initial_pusher_throttle = _pusher_throttle;
 
 		} else if (_vtol_schedule.flight_mode == FW_MODE) {
 			// in fw mode
@@ -248,7 +249,7 @@ void Standard::update_transition_state()
 
 		} else if (_pusher_throttle <= _params->front_trans_throttle) {
 			// ramp up throttle to the target throttle value
-			_pusher_throttle = _params->front_trans_throttle * time_since_trans_start / _params_standard.pusher_ramp_dt;
+            _pusher_throttle = _initial_pusher_throttle + (_params->front_trans_throttle * time_since_trans_start / _params_standard.pusher_ramp_dt);
 		}
 
 		// do blending of mc and fw controls if a blending airspeed has been provided and the minimum transition time has passed
