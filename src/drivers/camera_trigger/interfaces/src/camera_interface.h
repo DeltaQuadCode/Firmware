@@ -23,6 +23,13 @@ public:
 	 */
 	virtual ~CameraInterface() = default;
 
+    /**
+     * trigger the camera
+     * @param enable
+     */
+    virtual void setservo(int servo, int pwm) {}
+
+
 	/**
 	 * trigger the camera
 	 * @param enable

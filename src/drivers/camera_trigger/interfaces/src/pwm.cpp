@@ -32,9 +32,9 @@ void CameraInterfacePWM::setup()
 	uint8_t pin_bitmask = 0;
 
 	for (unsigned i = 0; i < arraySize(_pins); i++) {
-		if (_pins[i] >= 0) {
+        //if (_pins[i] >= 0) {
 			pin_bitmask |= (1 << _pins[i]);
-		}
+        //}
 	}
 
 	// Initialize and arm channels
@@ -65,6 +65,12 @@ void CameraInterfacePWM::trigger(bool trigger_on_true)
                         }
 		}
 	}
+}
+
+void CameraInterfacePWM::setservo(int servo, int pwm)
+{
+    printf("Setting servo %i to %i\r\n", servo, pwm);
+    up_pwm_trigger_set(servo, math::constrain(pwm, 0, 2100));
 }
 
 void CameraInterfacePWM::info()

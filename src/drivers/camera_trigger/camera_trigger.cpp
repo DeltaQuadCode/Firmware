@@ -176,6 +176,9 @@ private:
 	int			_command_sub;
 	int			_lpos_sub;
 
+    int         _pwm;
+    int         _servo;
+
 	orb_advert_t		_trigger_pub;
 	orb_advert_t		_cmd_ack_pub;
 
@@ -551,8 +554,18 @@ CameraTrigger::cycle_trampoline(void *arg)
 
 		orb_copy(ORB_ID(vehicle_command), trig->_command_sub, &cmd);
 
-                //NAV_CMD_IMAGE_START_CAPTURE
-                if (cmd.command == vehicle_command_s::VEHICLE_CMD_DO_DIGICAM_CONTROL) {
+        // Implement do_set_servo in trigger
+        if (cmd.command == vehicle_command_s::VEHICLE_CMD_DO_SET_SERVO) {
+           int servo =  commandParamToInt(cmd.param1)-1;
+           int pwm =  commandParamToInt(cmd.param2);
+           trig->_camera_interface->setservo(servo, pwm);
+           trig->_servo = servo;
+           trig->_pwm = pwm;
+
+        }
+
+        //NAV_CMD_IMAGE_START_CAPTURE
+        if (cmd.command == vehicle_command_s::VEHICLE_CMD_DO_DIGICAM_CONTROL) {
 
 			need_ack = true;
 
@@ -853,6 +866,8 @@ CameraTrigger::status()
 	PX4_INFO("main state : %s", _trigger_enabled ? "enabled" : "disabled");
 	PX4_INFO("pause state : %s", _trigger_paused ? "paused" : "active");
 	PX4_INFO("mode : %i", _trigger_mode);
+    PX4_INFO("servo : %i", _servo);
+    PX4_INFO("pwm : %i", _pwm);
 
 	if (_trigger_mode == TRIGGER_MODE_INTERVAL_ALWAYS_ON ||
 	    _trigger_mode == TRIGGER_MODE_INTERVAL_ON_CMD) {

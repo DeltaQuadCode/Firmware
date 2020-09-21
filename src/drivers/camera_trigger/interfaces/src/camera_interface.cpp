@@ -12,6 +12,7 @@ CameraInterface::CameraInterface():
 {
 }
 
+
 void CameraInterface::get_pins()
 {
 

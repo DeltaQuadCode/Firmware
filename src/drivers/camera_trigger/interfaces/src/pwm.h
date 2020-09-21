@@ -22,6 +22,8 @@ public:
 
 	void trigger(bool trigger_on_true);
 
+    void setservo(int servo, int pwm);
+
 	void info();
 
 private:
