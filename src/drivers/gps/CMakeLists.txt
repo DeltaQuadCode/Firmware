@@ -40,7 +40,7 @@ px4_add_module(
 	SRCS
 		gps.cpp
 		devices/src/gps_helper.cpp
-		devices/src/mtk.cpp
+#		devices/src/mtk.cpp
 		devices/src/ashtech.cpp
 		devices/src/ubx.cpp
 		devices/src/rtcm.cpp

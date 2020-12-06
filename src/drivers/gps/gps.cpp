@@ -682,9 +682,6 @@ GPS::run()
 							   gps_ubx_dynmodel);
 				break;
 
-			case GPS_DRIVER_MODE_MTK:
-				_helper = new GPSDriverMTK(&GPS::callback, this, &_report_gps_pos);
-				break;
 
 			case GPS_DRIVER_MODE_ASHTECH:
 				_helper = new GPSDriverAshtech(&GPS::callback, this, &_report_gps_pos, _p_report_sat_info, heading_offset);
