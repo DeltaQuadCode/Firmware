@@ -410,8 +410,8 @@ VtolAttitudeControl::is_fixed_wing_requested()
 
 	// handle abort request
 	if (_abort_front_transition) {
-		if (to_fw) {
-			to_fw = false;
+        if (to_fw) {
+            to_fw = false;
 
 		} else {
 			// the state changed to mc mode, reset the abort request
@@ -433,6 +433,7 @@ VtolAttitudeControl::abort_front_transition(const char *reason)
 		mavlink_log_critical(&_mavlink_log_pub, "Abort: %s", reason);
 		_abort_front_transition = true;
 		_vtol_vehicle_status.vtol_transition_failsafe = true;
+
 	}
 }
 
@@ -670,6 +671,8 @@ void VtolAttitudeControl::task_main()
 			_vtol_vehicle_status.vtol_in_rw_mode = true;
 			_vtol_vehicle_status.vtol_in_trans_mode = false;
 			_vtol_vehicle_status.in_transition_to_fw = false;
+            _abort_front_transition = false;
+            _transition_command = vtol_vehicle_status_s::VEHICLE_VTOL_STATE_MC;
 
 			// got data from mc attitude controller
 			_vtol_type->update_mc_state();
@@ -682,6 +685,7 @@ void VtolAttitudeControl::task_main()
 			_vtol_vehicle_status.vtol_in_rw_mode = false;
 			_vtol_vehicle_status.vtol_in_trans_mode = false;
 			_vtol_vehicle_status.in_transition_to_fw = false;
+            _vtol_vehicle_status.vtol_transition_failsafe = false;
 
 			_vtol_type->update_fw_state();
 

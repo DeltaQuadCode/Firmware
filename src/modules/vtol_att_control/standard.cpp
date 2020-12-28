@@ -131,7 +131,7 @@ void Standard::update_vtol_state()
 				// Failsafe event, engage mc motors immediately
 				_vtol_schedule.flight_mode = MC_MODE;
 				_pusher_throttle = 0.0f;
-				_reverse_output = 0.0f;
+                _reverse_output = 0.0f;
 
 
 			} else {
