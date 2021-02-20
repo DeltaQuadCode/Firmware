@@ -285,7 +285,7 @@ MissionFeasibilityChecker::checkMissionItemValidity(const mission_s &mission)
 		if (missionitem.nav_cmd == NAV_CMD_DO_SET_SERVO) {
 
 			/* check actuator number */
-			if (missionitem.params[0] < 0 || missionitem.params[0] > 5) {
+			if (missionitem.params[0] < 0 || missionitem.params[0] > 15) {
 				mavlink_log_critical(_navigator->get_mavlink_log_pub(), "Actuator number %d is out of bounds 0..5",
 						     (int)missionitem.params[0]);
 				return false;
