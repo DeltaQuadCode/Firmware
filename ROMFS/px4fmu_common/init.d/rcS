@@ -419,6 +419,7 @@ else
 
 		camera_trigger start
 		camera_feedback start
+		camera_trigger test_power
 	fi
 
 	#

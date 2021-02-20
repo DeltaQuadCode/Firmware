@@ -468,7 +468,7 @@ MissionBlock::issue_command(const mission_item_s &item)
 
 		// params[0] actuator number to be set 0..5 (corresponds to AUX outputs 1..6)
 		// params[1] new value for selected actuator in ms 900...2000
-		actuators.control[(int)item.params[0]] = 1.0f / 2000 * -item.params[1];
+		actuators.control[(int)item.params[0]+4] = (item.params[1]-1000)/1000.0f;
 
 		_actuator_pub.publish(actuators);
 

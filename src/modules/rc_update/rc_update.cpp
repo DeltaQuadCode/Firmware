@@ -601,7 +601,7 @@ void RCUpdate::UpdateManualSetpoint(const hrt_abstime &timestamp_sample)
 	_manual_control_setpoint_pub.publish(manual_control_setpoint);
 	_last_manual_control_setpoint_publish = manual_control_setpoint.timestamp;
 
-
+/*
 	// populate and publish actuator_controls_3 copied from mapped manual_control_setpoint
 	actuator_controls_s actuator_group_3{};
 	actuator_group_3.control[0] = manual_control_setpoint.y;
@@ -609,12 +609,13 @@ void RCUpdate::UpdateManualSetpoint(const hrt_abstime &timestamp_sample)
 	actuator_group_3.control[2] = manual_control_setpoint.r;
 	actuator_group_3.control[3] = manual_control_setpoint.z;
 	actuator_group_3.control[4] = manual_control_setpoint.flaps;
-	actuator_group_3.control[5] = manual_control_setpoint.aux1;
-	actuator_group_3.control[6] = manual_control_setpoint.aux2;
-	actuator_group_3.control[7] = manual_control_setpoint.aux3;
+//	actuator_group_3.control[5] = manual_control_setpoint.aux1;
+//	actuator_group_3.control[6] = manual_control_setpoint.aux2;
+//	actuator_group_3.control[7] = manual_control_setpoint.aux3;
 
 	actuator_group_3.timestamp = hrt_absolute_time();
 	_actuator_group_3_pub.publish(actuator_group_3);
+*/
 }
 
 int RCUpdate::task_spawn(int argc, char *argv[])
