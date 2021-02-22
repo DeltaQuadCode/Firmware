@@ -453,7 +453,7 @@ CameraTrigger::start()
 		enable_keep_alive(true);
 
 	} else {
-		enable_keep_alive(false);
+		enable_keep_alive(true);
 	}
 
 	// enable immediately if configured that way
