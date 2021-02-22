@@ -17,7 +17,9 @@
 #define PWM_2_CAMERA_KEEP_ALIVE		1700
 #define PWM_2_CAMERA_ON_OFF			1900
 
-CameraInterfaceSeagull::CameraInterfaceSeagull()
+CameraInterfaceSeagull::CameraInterfaceSeagull():
+	CameraInterface(),
+	_camera_is_on(true)
 {
 	//get_pins();
 
