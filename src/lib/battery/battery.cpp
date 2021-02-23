@@ -221,7 +221,7 @@ void Battery::estimateRemaining(const float voltage_v, const float current_a, co
 
 		} else {
 
-			_remaining_current = 1 - _discharged_mah_loop / _params.capacity;
+			_remaining_current = 1 - _discharged_mah / _params.capacity;
 			_remaining_current = math::max(_remaining_current, 0.f);
 			_remaining = math::min(_remaining_current, _remaining_voltage);
 
