@@ -70,7 +70,7 @@ px4_add_board(
 		land_detector
 		landing_target_estimator
 		load_mon
-		local_position_estimator
+		#local_position_estimator
 		logger
 		mavlink
 		mc_att_control
@@ -79,7 +79,7 @@ px4_add_board(
 		mc_rate_control
 		navigator
 		rc_update
-		rover_pos_control
+		#rover_pos_control
 		sensors
 		sih
 		temperature_compensation
@@ -115,8 +115,8 @@ px4_add_board(
 		ver
 		work_queue
 	EXAMPLES
-		fake_gps
-		fake_magnetometer
+		#fake_gps
+		#fake_magnetometer
 		#fixedwing_control # Tutorial code from https://px4.io/dev/example_fixedwing_control
 		#hello
 		#hwtest # Hardware test
