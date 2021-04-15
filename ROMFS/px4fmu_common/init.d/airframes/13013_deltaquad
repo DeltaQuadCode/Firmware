@@ -69,6 +69,7 @@ param set-default EKF2_MULTI_IMU 3
 param set-default EKF2_MULTI_MAG 2
 param set-default EKF2_REQ_EPH 5.0
 param set-default EKF2_REQ_EPV 10.0
+param set-default EKF2_REQ_HDRIFT 0.5
 param set-default EKF2_REQ_SACC 1.0
 param set-default EKF2_TAU_VEL 0.5
 param set-default FW_ARSP_MODE 1
