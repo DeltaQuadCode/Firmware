@@ -106,7 +106,11 @@ param set-default FW_T_SPDWEIGHT 2.0
 param set-default FW_T_STE_R_TC 0.001
 param set-default FW_T_THR_DAMP 1.0
 param set-default FW_T_VERT_ACC 6.0
+param set-default FW_T_ALT_TC 8.0
+param set-default FW_T_I_GAIN_PIT 0.3
+param set-default FW_T_TAS_TC 4.0
 param set-default GF_ACTION 2
+param set-default IMU_DGYRO_CUTOFF 30.0
 param set-default IMU_GYRO_RATEMAX 250
 param set-default LNDMC_ALT_MAX 9999.0
 param set-default LNDMC_XY_VEL_MAX 1.0

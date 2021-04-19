@@ -509,6 +509,12 @@ bool set_nav_state(vehicle_status_s *status, actuator_armed_s *armed, commander_
 				 * this enables POSCTL using e.g. flow.
 				 * For fixedwing, a global position is needed. */
 
+			/* fall back to RTL when no RCL activity was set and in manual mode */
+			} else if (status->rc_signal_lost && is_armed) {
+				enable_failsafe(status, old_failsafe, mavlink_log_pub, reason_no_rc);
+
+				set_link_loss_nav_state(status, armed, status_flags, internal_state, link_loss_actions_t::AUTO_RTL, param_com_rcl_act_t);
+
 			} else if (is_armed
 				   && check_invalid_pos_nav_state(status, old_failsafe, mavlink_log_pub, status_flags,
 						   !(posctl_nav_loss_act == position_nav_loss_actions_t::LAND_TERMINATE),
