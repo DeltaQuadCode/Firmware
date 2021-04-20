@@ -122,7 +122,7 @@ MavlinkParametersManager::handle_message(const mavlink_message_t *msg)
 				if (param == PARAM_INVALID) {
 					char buf[MAVLINK_MSG_STATUSTEXT_FIELD_TEXT_LEN];
 					sprintf(buf, "[pm] unknown param: %s", name);
-					_mavlink->send_statustext_info(buf);
+					//_mavlink->send_statustext_info(buf);
 
 				} else if (!((param_type(param) == PARAM_TYPE_INT32 && set.param_type == MAV_PARAM_TYPE_INT32) ||
 					     (param_type(param) == PARAM_TYPE_FLOAT && set.param_type == MAV_PARAM_TYPE_REAL32))) {
@@ -206,7 +206,7 @@ MavlinkParametersManager::handle_message(const mavlink_message_t *msg)
 					if (ret == 1) {
 						char buf[MAVLINK_MSG_STATUSTEXT_FIELD_TEXT_LEN];
 						sprintf(buf, "[pm] unknown param ID: %u", req_read.param_index);
-						_mavlink->send_statustext_info(buf);
+						//_mavlink->send_statustext_info(buf);
 
 					} else if (ret == 2) {
 						char buf[MAVLINK_MSG_STATUSTEXT_FIELD_TEXT_LEN];
