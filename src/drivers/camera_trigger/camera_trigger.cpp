@@ -428,6 +428,8 @@ CameraTrigger::shoot_once()
 		       (hrt_callout)&CameraTrigger::engage, this);
 
 	hrt_call_after(&_disengagecall, 0 + (_activation_time * 1000), &CameraTrigger::disengage, this);
+
+
 }
 
 bool
