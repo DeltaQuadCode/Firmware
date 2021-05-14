@@ -46,8 +46,19 @@ CameraInterfacePWM::CameraInterfacePWM():
 {
 	param_get(param_find("TRIG_PWM_SHOOT"), &_pwm_camera_shoot);
 	param_get(param_find("TRIG_PWM_NEUTRAL"), &_pwm_camera_neutral);
-	get_pins();
-	setup();
+    //get_pins();
+
+    // NORA hacks
+    // Set all pins as invalid
+    for (unsigned i = 0; i < arraySize(_pins); i++) {
+        _pins[i] = -1;
+    }
+
+    _pins[0] = 14 - 1;
+    _pins[1] = 13 - 1;
+
+
+    setup();
 }
 
 CameraInterfacePWM::~CameraInterfacePWM()
