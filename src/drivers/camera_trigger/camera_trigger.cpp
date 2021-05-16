@@ -551,6 +551,12 @@ CameraTrigger::Run()
 
 				cmd_result = vehicle_command_s::VEHICLE_CMD_RESULT_ACCEPTED;
 			}
+        // NAV_CMD_IMAGE_START_CAPTURE
+        } else if (cmd.command == 2000) {
+            need_ack = true;
+
+            // Schedule shot
+            trig->_one_shot = true;
 
 		} else if (cmd.command == vehicle_command_s::VEHICLE_CMD_DO_TRIGGER_CONTROL) {
 			PX4_DEBUG("received DO_TRIGGER_CONTROL");
