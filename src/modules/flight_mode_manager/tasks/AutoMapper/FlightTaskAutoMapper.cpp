@@ -146,6 +146,10 @@ void FlightTaskAutoMapper::_prepareTakeoffSetpoints()
 	_velocity_setpoint = Vector3f(NAN, NAN, NAN);
 
 	_gear.landing_gear = landing_gear_s::GEAR_DOWN;
+	if (_highEnoughForLandingGear()) {
+		_gear.landing_gear = landing_gear_s::GEAR_UP;
+	}
+
 }
 
 void FlightTaskAutoMapper::_prepareVelocitySetpoints()

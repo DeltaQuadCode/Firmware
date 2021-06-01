@@ -283,6 +283,7 @@ void FlightTaskManualAltitude::_respectGroundSlowdown()
 						     _param_mpc_land_alt2.get(), _param_mpc_land_alt1.get(),
 						     _param_mpc_tko_speed.get(), _constraints.speed_up);
 		_velocity_setpoint(2) = math::constrain(_velocity_setpoint(2), -limit_up, limit_down);
+		_gear.landing_gear = landing_gear_s::GEAR_DOWN;
 	}
 }
 
