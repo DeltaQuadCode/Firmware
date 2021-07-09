@@ -127,7 +127,11 @@ void output_limit_calc(const bool armed, const bool pre_armed, const unsigned nu
 	case OUTPUT_LIMIT_STATE_OFF:
 	case OUTPUT_LIMIT_STATE_INIT:
 		for (unsigned i = 0; i < num_channels; i++) {
-			effective_output[i] = disarmed_output[i];
+            if(i > 7 && i < 11){
+                effective_output[i] = output[i] * (max_output[i] - min_output[i]) / 2 + (max_output[i] + min_output[i]) / 2;
+            } else {
+                effective_output[i] = disarmed_output[i];
+            }
 		}
 
 		break;
