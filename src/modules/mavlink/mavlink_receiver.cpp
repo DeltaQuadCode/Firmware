@@ -532,7 +532,23 @@ void MavlinkReceiver::handle_message_command_both(mavlink_message_t *msg, const 
 			}
 		}
 
-	} else {
+    } else if (cmd_mavlink.command == MAV_CMD_DO_SET_SERVO) {
+        // since we're only paying attention to 3 AUX outputs, the
+        // index should be 0, otherwise ignore the message
+            actuator_controls_s actuator_controls{};
+            // update with existing values to avoid changing unspecified controls
+            _actuator_controls_3_sub.update(&actuator_controls);
+
+            actuator_controls.timestamp = hrt_absolute_time();
+
+            if(vehicle_command.param1 < 4.0f){
+                actuator_controls.control[(int)vehicle_command.param1+4] = (vehicle_command.param2/500.0f)-3.0f;
+                _actuator_controls_pubs[3].publish(actuator_controls);
+            }
+
+
+
+    } else {
 		send_ack = false;
 
 		if (msg->sysid == mavlink_system.sysid && msg->compid == mavlink_system.compid) {
