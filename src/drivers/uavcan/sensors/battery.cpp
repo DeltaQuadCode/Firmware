@@ -75,7 +75,7 @@ UavcanBatteryBridge::battery_sub_cb(const uavcan::ReceivedDataStructure<uavcan::
 
 	/* Override data that is expected to arrive from UAVCAN msg*/
 	battery_status_s *battery_status = _battery.getBatteryStatus();
-	battery_status->remaining = msg.state_of_charge_pct / 100.0f; // between 0 and 1
+	//battery_status->remaining = msg.state_of_charge_pct / 100.0f; // between 0 and 1
 	battery_status->temperature = msg.temperature + CONSTANTS_ABSOLUTE_NULL_CELSIUS; // Kelvin to Celcius
 	battery_status->capacity = msg.full_charge_capacity_wh;
 	//itoa(msg.model_instance_id, battery_status->serial_number, 10);
