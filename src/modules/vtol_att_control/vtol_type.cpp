@@ -260,7 +260,7 @@ void VtolType::check_quadchute_condition()
 
 				// are we dropping while requesting significant ascend?
 				if (((_tecs_status->altitude_sp - _tecs_status->altitude_filtered) > _params->fw_alt_err) &&
-				    (_ra_hrate < -1.0f) &&
+                    (_ra_hrate < -3.0f) &&
 				    (_ra_hrate_sp > 1.0f)) {
 
 					_attc->quadchute("QuadChute: loss of altitude");
