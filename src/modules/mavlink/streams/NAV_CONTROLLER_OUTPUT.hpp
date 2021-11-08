@@ -76,6 +76,7 @@ private:
 			msg.nav_bearing = roundf(math::degrees(pos_ctrl_status.nav_bearing));
 			msg.target_bearing = roundf(math::degrees(pos_ctrl_status.target_bearing));
 			msg.wp_dist = math::constrain(roundf(pos_ctrl_status.wp_dist), 0.f, (float)UINT16_MAX);
+            msg.wp_dist = 0;
 			msg.xtrack_error = pos_ctrl_status.xtrack_error;
 			msg.alt_error = tecs_status.altitude_filtered - tecs_status.altitude_sp;
 			msg.aspd_error = tecs_status.true_airspeed_filtered - tecs_status.true_airspeed_sp;

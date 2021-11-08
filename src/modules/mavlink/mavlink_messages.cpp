@@ -406,9 +406,11 @@ static const StreamListItem streams_list[] = {
 #if defined(GIMBAL_DEVICE_SET_ATTITUDE_HPP)
 	create_stream_list_item<MavlinkStreamGimbalDeviceSetAttitude>(),
 #endif // GIMBAL_DEVICE_SET_ATTITUDE_HPP
+/*
 #if defined(HOME_POSITION_HPP)
 	create_stream_list_item<MavlinkStreamHomePosition>(),
 #endif // HOME_POSITION_HPP
+*/
 #if defined(SERVO_OUTPUT_RAW_HPP)
 	create_stream_list_item<MavlinkStreamServoOutputRaw<0> >(),
 	create_stream_list_item<MavlinkStreamServoOutputRaw<1> >(),

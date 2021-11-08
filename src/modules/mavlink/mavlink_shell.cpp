@@ -69,7 +69,10 @@ MavlinkShell::~MavlinkShell()
 
 int MavlinkShell::start()
 {
-	//this currently only works for NuttX
+
+    return -1;
+
+    //this currently only works for NuttX
 #ifndef __PX4_NUTTX
 	return -1;
 #endif /* __PX4_NUTTX */

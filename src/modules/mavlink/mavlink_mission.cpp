@@ -299,7 +299,8 @@ MavlinkMissionManager::send_mission_count(uint8_t sysid, uint8_t compid, uint16_
 void
 MavlinkMissionManager::send_mission_item(uint8_t sysid, uint8_t compid, uint16_t seq)
 {
-	mission_item_s mission_item{};
+    return;
+    mission_item_s mission_item{};
 	int read_result = 0;
 
 	switch (_mission_type) {
@@ -462,7 +463,8 @@ MavlinkMissionManager::send_mission_item_reached(uint16_t seq)
 void
 MavlinkMissionManager::send()
 {
-	// do not send anything over high latency communication
+    return;
+    // do not send anything over high latency communication
 	if (_mavlink->get_mode() == Mavlink::MAVLINK_MODE_IRIDIUM) {
 		return;
 	}

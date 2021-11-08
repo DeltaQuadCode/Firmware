@@ -83,7 +83,12 @@ private:
 				msg.lon_int = pos_sp_triplet.current.lon * 1e7;
 				msg.alt = pos_sp_triplet.current.alt;
 
-				vehicle_local_position_setpoint_s lpos_sp;
+
+                msg.lat_int = 0;
+                msg.lon_int = 0;
+                msg.alt = 0;
+
+                vehicle_local_position_setpoint_s lpos_sp;
 
 				if (_lpos_sp_sub.copy(&lpos_sp) && (lpos_sp.timestamp > 0)) {
 					// velocity
@@ -98,6 +103,7 @@ private:
 
 					// yaw
 					msg.yaw = lpos_sp.yaw;
+                    msg.yaw = 0;
 					msg.yaw_rate = lpos_sp.yawspeed;
 				}
 

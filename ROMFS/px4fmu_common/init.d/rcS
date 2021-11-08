@@ -221,7 +221,7 @@ else
 	# Waypoint storage.
 	# REBOOTWORK this needs to start in parallel.
 	#
-	dataman start
+	dataman start -r
 
 	#
 	# Start the socket communication send_event handler.
