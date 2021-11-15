@@ -124,7 +124,7 @@ bool VtolType::init()
 
 
 	// in order to get the main motors we take all motors and clear the alternate motor bits
-	for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 8; i++) {
 		if (_alternate_motor_channel_bitmap & (1 << i)) {
 			_main_motor_channel_bitmap &= ~(1 << i);
 		}

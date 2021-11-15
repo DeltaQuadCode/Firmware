@@ -642,7 +642,7 @@ void RCUpdate::UpdateManualSetpoint(const hrt_abstime &timestamp_sample)
 	}
 
 	actuator_group_3.timestamp = hrt_absolute_time();
-	_actuator_group_3_pub.publish(actuator_group_3);
+    _actuator_group_3_pub.publish(actuator_group_3);
 }
 
 int RCUpdate::task_spawn(int argc, char *argv[])
