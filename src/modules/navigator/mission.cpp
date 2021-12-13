@@ -1212,6 +1212,7 @@ Mission::do_need_vertical_takeoff()
 			    _mission_item.nav_cmd == NAV_CMD_VTOL_TAKEOFF ||
 			    _mission_item.nav_cmd == NAV_CMD_LOITER_TIME_LIMIT ||
                 _mission_item.nav_cmd == NAV_CMD_DO_SET_SERVO ||
+                _mission_item.nav_cmd == NAV_CMD_DELAY ||
                 _mission_item.nav_cmd == NAV_CMD_LOITER_UNLIMITED)) {
 
 			_need_takeoff = false;
