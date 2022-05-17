@@ -53,17 +53,17 @@
 
 /* ADC channels */
 #define PX4_ADC_GPIO  \
-	/* PA0  */  GPIO_ADC1_INP16,   \
-	/* PA1  */  GPIO_ADC1_INP17,   \
-	/* PA2  */  GPIO_ADC12_INP14,  \
-	/* PF11 */  GPIO_ADC1_INP2,    \
-	/* PC4  */  GPIO_ADC12_INP4,   \
-	/* PA4  */  GPIO_ADC12_INP18,  \
-	/* PF12 */  GPIO_ADC1_INP6,    \
-	/* PC5  */  GPIO_ADC12_INP8,   \
-	/* PC1  */  GPIO_ADC123_INP11, \
-	/* PC2  */  GPIO_ADC123_INP12, \
-	/* PC3  */  GPIO_ADC12_INP13
+    /* PA0  */  GPIO_ADC1_INP16,   \
+    /* PA1  */  GPIO_ADC1_INP17,   \
+    /* PA2  */  GPIO_ADC12_INP14,  \
+    /* PF11 */  GPIO_ADC1_INP2,    \
+    /* PC4  */  GPIO_ADC12_INP4,   \
+    /* PA4  */  GPIO_ADC12_INP18,  \
+    /* PF12 */  GPIO_ADC1_INP6,    \
+    /* PC5  */  GPIO_ADC12_INP8,   \
+    /* PC1  */  GPIO_ADC123_INP11, \
+    /* PC2  */  GPIO_ADC123_INP12, \
+    /* PC3  */  GPIO_ADC12_INP13
 
 /* Define Channel numbers must match above GPIO pins */
 #define ADC_BATTERY1_VOLTAGE_CHANNEL        16 /* PA0  */
@@ -79,17 +79,17 @@
 #define ADC_HW_REV_SENSE_CHANNEL            13 /* PC3  */
 
 #define ADC_CHANNELS \
-	((1 << ADC_BATTERY1_VOLTAGE_CHANNEL)       | \
-	 (1 << ADC_BATTERY1_CURRENT_CHANNEL)       | \
-	 (1 << ADC_BATTERY2_VOLTAGE_CHANNEL)       | \
-	 (1 << ADC_BATTERY2_CURRENT_CHANNEL)       | \
-	 (1 << ADC1_6V6_IN_CHANNEL)                | \
-	 (1 << ADC1_3V3_IN_CHANNEL)                | \
-	 (1 << ADC_RSSI_IN_CHANNEL)                | \
-	 (1 << ADC_SCALED_V5_CHANNEL)              | \
-	 (1 << ADC_SCALED_VDD_3V3_SENSORS_CHANNEL) | \
-	 (1 << ADC_HW_VER_SENSE_CHANNEL)           | \
-	 (1 << ADC_HW_REV_SENSE_CHANNEL))
+    ((1 << ADC_BATTERY1_VOLTAGE_CHANNEL)       | \
+     (1 << ADC_BATTERY1_CURRENT_CHANNEL)       | \
+     (1 << ADC_BATTERY2_VOLTAGE_CHANNEL)       | \
+     (1 << ADC_BATTERY2_CURRENT_CHANNEL)       | \
+     (1 << ADC1_6V6_IN_CHANNEL)                | \
+     (1 << ADC1_3V3_IN_CHANNEL)                | \
+     (1 << ADC_RSSI_IN_CHANNEL)                | \
+     (1 << ADC_SCALED_V5_CHANNEL)              | \
+     (1 << ADC_SCALED_VDD_3V3_SENSORS_CHANNEL) | \
+     (1 << ADC_HW_VER_SENSE_CHANNEL)           | \
+     (1 << ADC_HW_REV_SENSE_CHANNEL))
 
 /* HW has to large of R termination on ADC todo:change when HW value is chosen */
 #define BOARD_ADC_OPEN_CIRCUIT_V     (5.6f)
@@ -113,8 +113,8 @@
 /* Power supply control and monitoring GPIOs */
 #define BOARD_NUMBER_BRICKS             2
 
-#define GPIO_nPOWER_IN_ADC              /* PG1  */ (GPIO_INPUT|GPIO_PULLUP|GPIO_PORTG|GPIO_PIN1)
-#define GPIO_nPOWER_IN_CAN              /* PG2  */ (GPIO_INPUT|GPIO_PULLUP|GPIO_PORTG|GPIO_PIN2)
+#define GPIO_nPOWER_IN_CAN              /* PG1  */ (GPIO_INPUT|GPIO_PULLUP|GPIO_PORTG|GPIO_PIN1)
+#define GPIO_nPOWER_IN_ADC              /* PG2  */ (GPIO_INPUT|GPIO_PULLUP|GPIO_PORTG|GPIO_PIN2)
 #define GPIO_nPOWER_IN_C                /* PG0  */ (GPIO_INPUT|GPIO_PULLUP|GPIO_PORTG|GPIO_PIN0)
 
 #define GPIO_nVDD_BRICK1_VALID          GPIO_nPOWER_IN_CAN /* Brick 1 is Chosen */
@@ -203,37 +203,37 @@
 #define BOARD_ENABLE_CONSOLE_BUFFER
 
 #define PX4_GPIO_INIT_LIST { \
-		PX4_ADC_GPIO,                     \
-		GPIO_HW_REV_DRIVE,                \
-		GPIO_HW_VER_DRIVE,                \
-		GPIO_CAN1_TX,                     \
-		GPIO_CAN1_RX,                     \
-		GPIO_CAN2_TX,                     \
-		GPIO_CAN2_RX,                     \
-		GPIO_CAN1_SILENT_S0,              \
-		GPIO_CAN2_SILENT_S1,              \
-		GPIO_HEATER_OUTPUT,               \
-		GPIO_nPOWER_IN_CAN,               \
-		GPIO_nPOWER_IN_ADC,               \
-		GPIO_nPOWER_IN_C,                 \
-		GPIO_nVDD_5V_PERIPH_EN,           \
-		GPIO_nVDD_5V_PERIPH_OC,           \
-		GPIO_VDD_5V_HIPOWER_EN,           \
-		GPIO_VDD_5V_HIPOWER_OC,          \
-		GPIO_VDD_5V_RC_EN,                \
-		PX4_GPIO_PIN_OFF(GPIO_SDMMC1_D0), \
-		PX4_GPIO_PIN_OFF(GPIO_SDMMC1_D1), \
-		PX4_GPIO_PIN_OFF(GPIO_SDMMC1_D2), \
-		PX4_GPIO_PIN_OFF(GPIO_SDMMC1_D3), \
-		PX4_GPIO_PIN_OFF(GPIO_SDMMC1_CMD),\
-		GPIO_VDD_3V3_SD_CARD_EN,          \
-		GPIO_TONE_ALARM_IDLE,             \
-		GPIO_OTGFS_VBUS,                  \
-		PX4_GPIO_PIN_OFF(GPIO_HS_USB_EN), \
-		GPIO_RSSI_IN,                     \
-		FMU_LED_AMBER,                    \
-		GPIO_BTN_SAFETY,                  \
-	}
+        PX4_ADC_GPIO,                     \
+        GPIO_HW_REV_DRIVE,                \
+        GPIO_HW_VER_DRIVE,                \
+        GPIO_CAN1_TX,                     \
+        GPIO_CAN1_RX,                     \
+        GPIO_CAN2_TX,                     \
+        GPIO_CAN2_RX,                     \
+        GPIO_CAN1_SILENT_S0,              \
+        GPIO_CAN2_SILENT_S1,              \
+        GPIO_HEATER_OUTPUT,               \
+        GPIO_nPOWER_IN_CAN,               \
+        GPIO_nPOWER_IN_ADC,               \
+        GPIO_nPOWER_IN_C,                 \
+        GPIO_nVDD_5V_PERIPH_EN,           \
+        GPIO_nVDD_5V_PERIPH_OC,           \
+        GPIO_VDD_5V_HIPOWER_EN,           \
+        GPIO_VDD_5V_HIPOWER_OC,          \
+        GPIO_VDD_5V_RC_EN,                \
+        PX4_GPIO_PIN_OFF(GPIO_SDMMC1_D0), \
+        PX4_GPIO_PIN_OFF(GPIO_SDMMC1_D1), \
+        PX4_GPIO_PIN_OFF(GPIO_SDMMC1_D2), \
+        PX4_GPIO_PIN_OFF(GPIO_SDMMC1_D3), \
+        PX4_GPIO_PIN_OFF(GPIO_SDMMC1_CMD),\
+        GPIO_VDD_3V3_SD_CARD_EN,          \
+        GPIO_TONE_ALARM_IDLE,             \
+        GPIO_OTGFS_VBUS,                  \
+        PX4_GPIO_PIN_OFF(GPIO_HS_USB_EN), \
+        GPIO_RSSI_IN,                     \
+        FMU_LED_AMBER,                    \
+        GPIO_BTN_SAFETY,                  \
+    }
 
 __BEGIN_DECLS
 #ifndef __ASSEMBLY__
