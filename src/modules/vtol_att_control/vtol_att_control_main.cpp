@@ -69,6 +69,7 @@ VtolAttitudeControl::VtolAttitudeControl() :
 	_params_handles.elevons_mc_lock = param_find("VT_ELEV_MC_LOCK");
 	_params_handles.fw_min_alt = param_find("VT_FW_MIN_ALT");
 	_params_handles.fw_alt_err = param_find("VT_FW_ALT_ERR");
+	_params_handles.qc_max_alt = param_find("VT_QC_MAX_ALT");
 	_params_handles.fw_qc_max_pitch = param_find("VT_FW_QC_P");
 	_params_handles.fw_qc_max_roll = param_find("VT_FW_QC_R");
 	_params_handles.front_trans_time_openloop = param_find("VT_F_TR_OL_TM");
@@ -252,6 +253,9 @@ VtolAttitudeControl::parameters_update()
 	/* maximum negative altitude error for FW mode (Adaptive QuadChute) */
 	param_get(_params_handles.fw_alt_err, &v);
 	_params.fw_alt_err = v;
+
+	param_get(_params_handles.qc_max_alt, &v);
+	_params.qc_max_alt = v;
 
 	/* maximum pitch angle (QuadChute) */
 	param_get(_params_handles.fw_qc_max_pitch, &l);

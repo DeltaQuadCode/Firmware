@@ -254,6 +254,17 @@ PARAM_DEFINE_FLOAT(VT_FW_MIN_ALT, 0.0f);
  */
 PARAM_DEFINE_FLOAT(VT_FW_ALT_ERR, 0.0f);
 
+**
+ * Max QuadChute Altitude
+ *
+ * Maximum altitude above home position to deploy quadchute
+ * the vehicle will transition back to MC mode and enter failsafe RTL.
+ * @min 0.0
+ * @max 3000.0
+ * @group VTOL Attitude Control
+ */
+PARAM_DEFINE_FLOAT(VT_QC_MAX_ALT, 0.0f);
+
 /**
  * QuadChute Max Pitch
  *
