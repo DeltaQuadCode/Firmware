@@ -252,7 +252,7 @@ PARAM_DEFINE_FLOAT(VT_FW_MIN_ALT, 0.0f);
  * @max 200.0
  * @group VTOL Attitude Control
  */
-PARAM_DEFINE_FLOAT(VT_FW_ALT_ERR, 0.0f);
+PARAM_DEFINE_FLOAT(VT_FW_ALT_ERR, 200.0f);
 
 **
  * Max QuadChute Altitude
