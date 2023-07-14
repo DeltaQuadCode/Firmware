@@ -190,6 +190,11 @@
 #define BOARD_ADC_BRICK2_VALID  (!px4_arch_gpioread(GPIO_nVDD_BRICK2_VALID))
 #define BOARD_ADC_PERIPH_5V_OC  (!px4_arch_gpioread(GPIO_nVDD_5V_PERIPH_OC))
 #define BOARD_ADC_HIPOWER_5V_OC (!px4_arch_gpioread(GPIO_VDD_5V_HIPOWER_OC))
+/**
+ * change to scaling because the nora read 0.4 volts less than what's coming in.
+*/
+#define ADC_V5_V_FULL_SCALE             (7.0f)  // 5 volt Rail full scale voltage
+
 
 
 /* This board provides a DMA pool and APIs */
